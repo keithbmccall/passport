@@ -8,47 +8,33 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src --fix --ignore-path .eslintignore",
-    "prettier": "prettier --write .eslintrc.json src",
+    "prettier": "prettier --write .eslintrc.js src",
     "format": "yarn run lint && yarn run prettier",
+    "tc": "yarn tsc --project tsconfig.json && rm -rf src/**/*.js",
     "deps": "rm -rf node_modules && yarn && yarn cache clean && cd ios && pod install && cd ../",
-    "updeps": "yarn upgrade && rm -rf node_modules && yarn cache clean && yarn && cd ios && pod install && cd ../ && yarn format"
+    "updeps": "yarn upgrade && rm -rf node_modules && yarn cache clean && yarn && cd ios && pod install && cd ../"
   },
   "dependencies": {
-    "@react-native-async-storage/async-storage": "^1.15.6",
-    "react": "17.0.2",
-    "react-native": "0.65.1",
-    "react-native-fingerprint-scanner": "^6.0.0"
+    "react": "18.1.0",
+    "react-native": "0.70.6"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@babel/runtime": "^7.12.5",
     "@react-native-community/eslint-config": "^2.0.0",
+    "@tsconfig/react-native": "^2.0.2",
     "@types/jest": "^26.0.23",
-    "@types/react": "^17.0.20",
-    "@types/react-native": "^0.64.5",
-    "@types/react-test-renderer": "^16.9.2",
-    "@typescript-eslint/eslint-plugin": "^4.8.2",
-    "@typescript-eslint/parser": "^4.8.2",
+    "@types/react": "^18.0.21",
+    "@types/react-native": "^0.70.6",
+    "@types/react-test-renderer": "^18.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.37.0",
+    "@typescript-eslint/parser": "^5.37.0",
     "babel-jest": "^26.6.3",
-    "eslint": "^7.14.0",
-    "eslint-config-kentcdodds": "^17.3.2",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-import-resolver-typescript": "^2.3.0",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jsx-a11y": "^6.3.1",
-    "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-react": "^7.21.5",
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "husky": "^4.2.5",
+    "eslint": "^7.32.0",
     "jest": "^26.6.3",
-    "lint-staged": "^10.2.11",
-    "metro-react-native-babel-preset": "^0.66.0",
-    "react-native-codegen": "^0.0.7",
-    "react-test-renderer": "17.0.2",
-    "typescript": "^3.8.3"
-  },
-  "resolutions": {
-    "@types/react": "^17"
+    "metro-react-native-babel-preset": "0.72.3",
+    "react-test-renderer": "18.1.0",
+    "typescript": "^4.8.3"
   },
   "jest": {
     "preset": "react-native",
@@ -59,16 +45,6 @@
       "jsx",
       "json",
       "node"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.js": [
-      "yarn format"
     ]
   }
 }
